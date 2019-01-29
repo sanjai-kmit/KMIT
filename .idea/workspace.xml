@@ -84,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/basePack/CommonMethods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="357" column="27" selection-start-line="357" selection-start-column="27" selection-end-line="357" selection-end-column="27" />
+            <state relative-caret-position="586">
+              <caret line="349" column="61" lean-forward="true" selection-start-line="349" selection-start-column="61" selection-end-line="349" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -236,7 +236,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548755251461" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548757443548" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -288,9 +288,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="KMIT - 2019.01.29 at 13h 35m 13s.xml">
-      <configuration name="KMIT" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="KMIT - 2019.01.29 at 13h 36m 59s.xml">
       <configuration name="KMIT" configurationId="TestNG" />
     </history-entry>
@@ -318,10 +315,12 @@
     <history-entry file="KMIT - 2019.01.29 at 14h 07m 04s.xml">
       <configuration name="KMIT" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="KMIT - 2019.01.29 at 15h 18m 11s.xml">
+      <configuration name="KMIT" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15991472" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -333,7 +332,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -615,8 +614,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/basePack/CommonMethods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="357" column="27" selection-start-line="357" selection-start-column="27" selection-end-line="357" selection-end-column="27" />
+        <state relative-caret-position="586">
+          <caret line="349" column="61" lean-forward="true" selection-start-line="349" selection-start-column="61" selection-end-line="349" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
