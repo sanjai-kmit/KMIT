@@ -12,10 +12,10 @@ public class Sign_Up extends BaseClass {
         driver.navigate().to(base_url + element.getString("signup"));
 
 //        check for Sign up page title
-        String actual_page_title = driver.getTitle();
-        String expected_page_title = property.getString("sign_up_page_title");
+/*        String actual_page_title = driver.getTitle();
+        String expected_page_title = property.getString("sign_up_page_title");*/
         try {
-            Assert.assertEquals(actual_page_title, expected_page_title);
+            Assert.assertEquals(driver.getTitle(), property.getString("sign_up_page_title"));
         }catch (Exception e){
             System.out.println(e);
         }
@@ -32,7 +32,7 @@ public class Sign_Up extends BaseClass {
             method.city();
             method.zipCode();
             method.password_confirmPassword();
-        }else if (site_name == "milk"){
+        }else if (site_name.equals("cwma")){
             method.firstName();
             method.lastName();
             method.phoneNumber();
