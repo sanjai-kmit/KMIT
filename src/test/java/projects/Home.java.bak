@@ -10,8 +10,8 @@ public class Home extends BaseClass {
 
         try {
             Assert.assertEquals(page_title, property.getString("home_title"));
-        }catch (Throwable t){
-            t.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
