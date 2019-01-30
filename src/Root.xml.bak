@@ -11,7 +11,7 @@
     <parameter name="module" value="tickets" />
 
     <!--Enter to use as a new user or existing in the below value (value="new" / "exist")-->
-    <parameter name="user" value="new" />
+    <parameter name="user" value="exist" />
 
     <!--Enter user name and password if above user value=exist-->
     <parameter name="userName" value="sanjaim@kmitsolutions.com" />

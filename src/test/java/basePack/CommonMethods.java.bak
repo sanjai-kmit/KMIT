@@ -16,29 +16,29 @@ public class CommonMethods extends BaseClass{
     @FindBy(name = "firstName")
     WebElement firstName;
 
-/*    @FindBy(css = "div.signup-form:nth-child(1) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
-    WebElement firstName_error;*/
+    @FindBy(css = "div.signup-form:nth-child(1) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
+    WebElement firstName_error;
 
     @FindBy(name = "lastName")
     WebElement lastName;
-/*
+
     @FindBy(css = ".login-panel > div:nth-child(2) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
-    WebElement lastName_error;*/
+    WebElement lastName_error;
 
     @FindBy(name = "phoneNumber")
     WebElement phoneNumber;
 
-/*    @FindBy(css = "div.col-md-6:nth-child(3) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
-    WebElement phoneNumber_error;*/
+    @FindBy(css = "div.col-md-6:nth-child(3) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
+    WebElement phoneNumber_error;
 
     @FindBy(name = "email")
     WebElement email;
 
-/*    @FindBy(css = "div.col-md-6:nth-child(4) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
+    @FindBy(css = "div.col-md-6:nth-child(4) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
     WebElement email_error_empty;
 
     @FindBy(css = "div.col-md-6:nth-child(4) > div:nth-child(2) > span:nth-child(2) > span:nth-child(2)")
-    WebElement email_error_invalid;*/
+    WebElement email_error_invalid;
 
     @FindBy(name = "address")
     WebElement address;
@@ -49,26 +49,26 @@ public class CommonMethods extends BaseClass{
     @FindBy(name = "ZIPCODE")
     WebElement zipcode;
 
-/*    @FindBy(css = "div.col-md-6:nth-child(9) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
-    WebElement zipcode_error;*/
+    @FindBy(css = "div.col-md-6:nth-child(9) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
+    WebElement zipcode_error;
 
     @FindBy(name = "password")
     WebElement password;
 
-/*    @FindBy(css = "div.col-md-6:nth-child(10) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
-    WebElement password_error;*/
+    @FindBy(css = "div.col-md-6:nth-child(10) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
+    WebElement password_error;
 
     @FindBy(name = "confirmPassword")
     WebElement confirmPassword;
 
-/*    @FindBy(css = "div.col-md-6:nth-child(11) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
+    @FindBy(css = "div.col-md-6:nth-child(11) > div:nth-child(2) > span:nth-child(2) > span:nth-child(1)")
     WebElement confirmPassword_error;
 
     @FindBy(className = "alert")
     WebElement password_limit_error;
 
     @FindBy(css = "div.col-md-6:nth-child(11) > div:nth-child(2) > span:nth-child(2) > span:nth-child(3)")
-    WebElement password_not_match_error;*/
+    WebElement password_not_match_error;
 
     @FindBy(name = "customerCode")
     WebElement customerCode;
@@ -80,14 +80,14 @@ public class CommonMethods extends BaseClass{
     @FindBy(name = "userName")
     WebElement user_name;
 
-/*    @FindBy(css = ".loginView-panel > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2) > span:nth-child(1)")
+    @FindBy(css = ".loginView-panel > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2) > span:nth-child(1)")
     WebElement user_name_empty_error;
 
     @FindBy(css = ".loginView-panel > div:nth-child(2)")
     WebElement user_invalid_error;
 
     @FindBy(css = "span.col-sm-12 > span:nth-child(1)")
-    WebElement user_password_empty_error;*/
+    WebElement user_password_empty_error;
 
     @FindBy(css = "div.padding-l-r-0:nth-child(4) > button:nth-child(1)")
     WebElement login_btn;
@@ -107,7 +107,6 @@ public class CommonMethods extends BaseClass{
 
 //    for firstname
     public void firstName() throws Exception{
-
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //Validate for empty field
@@ -115,8 +114,7 @@ public class CommonMethods extends BaseClass{
         create_btn.click();
 
         try {
-//            Assert.assertEquals(firstName_error.getText(), property.getString("firstName_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("firstName_error"))).getText(), property.getString("firstName_error").toUpperCase());
+            Assert.assertEquals(firstName_error.getText(), property.getString("firstName_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, firstName);
@@ -134,8 +132,7 @@ public class CommonMethods extends BaseClass{
         create_btn.click();
 
         try {
-//            Assert.assertEquals(lastName_error.getText(), property.getString("lastName_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("lastName_error"))).getText(), property.getString("lastName_error").toUpperCase());
+            Assert.assertEquals(lastName_error.getText(), property.getString("lastName_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, lastName);
@@ -153,8 +150,7 @@ public class CommonMethods extends BaseClass{
         create_btn.click();
 
         try {
-//            Assert.assertEquals(phoneNumber_error.getText(), property.getString("phonNumber_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("phoneNumber_error"))).getText(), property.getString("phonNumber_error").toUpperCase());
+            Assert.assertEquals(phoneNumber_error.getText(), property.getString("phonNumber_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, phoneNumber);
@@ -171,8 +167,7 @@ public class CommonMethods extends BaseClass{
         create_btn.click();
 
         try {
-//            Assert.assertEquals(email_error_empty.getText(), property.getString("email_error_empty").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_empty"))).getText(), property.getString("email_error_empty").toUpperCase());
+            Assert.assertEquals(email_error_empty.getText(), property.getString("email_error_empty").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, email);
@@ -183,8 +178,7 @@ public class CommonMethods extends BaseClass{
         create_btn.click();
 
         try {
-//            Assert.assertEquals(email_error_invalid.getText(), property.getString("email_error_invalid").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_invalid"))).getText(), property.getString("email_error_invalid").toUpperCase());
+            Assert.assertEquals(email_error_invalid.getText(), property.getString("email_error_invalid").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, email);
@@ -214,8 +208,7 @@ public class CommonMethods extends BaseClass{
         create_btn.click();
 
         try {
-//            Assert.assertEquals(zipcode_error.getText(), property.getString("zipcode_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("zipcode_error"))).getText(), property.getString("zipcode_error").toUpperCase());
+            Assert.assertEquals(zipcode_error.getText(), property.getString("zipcode_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, zipcode);
@@ -233,8 +226,7 @@ public class CommonMethods extends BaseClass{
         create_btn.click();
 
         try {
-//            Assert.assertEquals(password_error.getText(), property.getString("password_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_error"))).getText(), property.getString("password_error").toUpperCase());
+            Assert.assertEquals(password_error.getText(), property.getString("password_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, password);
@@ -242,8 +234,7 @@ public class CommonMethods extends BaseClass{
         }
 
         try {
-//            Assert.assertEquals(confirmPassword_error.getText(), property.getString("confirmPassword_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("confirmPassword_error"))).getText(), property.getString("confirmPassword_error").toUpperCase());
+            Assert.assertEquals(confirmPassword_error.getText(), property.getString("confirmPassword_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, confirmPassword);
@@ -264,8 +255,7 @@ public class CommonMethods extends BaseClass{
                 Thread.sleep(2000);
             }
             try {
-//                Assert.assertEquals(password_limit_error.getText(), property.getString("password_limit_error"));
-                Assert.assertEquals(driver.findElement(By.className(element.getString("password_limit_error"))).getText(), property.getString("password_limit_error"));
+                Assert.assertEquals(password_limit_error.getText(), property.getString("password_limit_error"));
             }catch (Throwable t){
                 t.printStackTrace();
                 highlight.highLightElement(driver, password);
@@ -280,8 +270,7 @@ public class CommonMethods extends BaseClass{
         password.sendKeys("01234567");
         confirmPassword.sendKeys("987654321");
         try {
-//            Assert.assertEquals(password_not_match_error.getText(), property.getString("password_not_match_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_not_match_error"))).getText(), property.getString("password_not_match_error").toUpperCase());
+            Assert.assertEquals(password_not_match_error.getText(), property.getString("password_not_match_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, password);
@@ -312,8 +301,7 @@ public class CommonMethods extends BaseClass{
         login_btn.click();
 
         try {
-//            Assert.assertEquals(user_name_empty_error.getText(), property.getString("user_name_empty_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_name_empty_error"))).getText(), property.getString("user_name_empty_error").toUpperCase());
+            Assert.assertEquals(user_name_empty_error.getText(), property.getString("user_name_empty_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, user_name);
@@ -321,8 +309,7 @@ public class CommonMethods extends BaseClass{
         }
 
         try {
-//            Assert.assertEquals(user_password_empty_error.getText(), property.getString("user_password_empty_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_password_empty_error"))).getText(), property.getString("user_password_empty_error").toUpperCase());
+            Assert.assertEquals(user_password_empty_error.getText(), property.getString("user_password_empty_error").toUpperCase());
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, password);
@@ -339,8 +326,7 @@ public class CommonMethods extends BaseClass{
         Thread.sleep(2000);
 
         try {
-//            Assert.assertEquals(user_invalid_error.getText(), property.getString("user_password_invalid_error"));
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_invalid_error"))).getText(), property.getString("user_password_invalid_error"));
+            Assert.assertEquals(user_invalid_error.getText(), property.getString("user_password_invalid_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, password);
@@ -357,8 +343,7 @@ public class CommonMethods extends BaseClass{
         Thread.sleep(2000);
 
         try {
-//            Assert.assertEquals(user_invalid_error.getText(), property.getString("user_name_invalid_error"));
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_invalid_error"))).getText(), property.getString("user_name_invalid_error"));
+            Assert.assertEquals(user_invalid_error.getText(), property.getString("user_name_invalid_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, user_name);

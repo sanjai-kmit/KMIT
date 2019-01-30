@@ -23,21 +23,13 @@ public class Sign_Up extends BaseClass {
 //        Sign up field functionality
         CommonMethods method = new CommonMethods(driver);
 
-        if (site_name.equals("erie")) {
-            method.firstName();
-            method.lastName();
-            method.phoneNumber();
-            method.email();
-            method.address();
-            method.city();
-            method.zipCode();
-            method.password_confirmPassword();
-        }else if (site_name == "milk"){
-            method.firstName();
-            method.lastName();
-            method.phoneNumber();
-            method.email();
-            method.password_confirmPassword();
-        }
+        method.firstName();
+        method.lastName();
+        method.phoneNumber();
+        method.email();
+        method.address();
+        method.city();
+        method.zipCode();
+        method.password_confirmPassword();
     }
 }
