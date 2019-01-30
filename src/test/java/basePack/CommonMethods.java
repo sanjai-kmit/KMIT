@@ -73,8 +73,8 @@ public class CommonMethods extends BaseClass{
     @FindBy(name = "customerCode")
     WebElement customerCode;
 
-    @FindBy(css = "button.margin-t5p")
-    WebElement create_btn;
+//    @FindBy(css = "button.margin-t5p")
+//    WebElement create_btn;
 
 //    for login page fields
     @FindBy(name = "userName")
@@ -89,8 +89,8 @@ public class CommonMethods extends BaseClass{
     @FindBy(css = "span.col-sm-12 > span:nth-child(1)")
     WebElement user_password_empty_error;*/
 
-    @FindBy(css = "div.padding-l-r-0:nth-child(4) > button:nth-child(1)")
-    WebElement login_btn;
+/*    @FindBy(css = "div.padding-l-r-0:nth-child(4) > button:nth-child(1)")
+    WebElement login_btn;*/
 
 
     public CommonMethods(WebDriver driver){
@@ -112,11 +112,12 @@ public class CommonMethods extends BaseClass{
 
         //Validate for empty field
         firstName.clear();
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
 //            Assert.assertEquals(firstName_error.getText(), property.getString("firstName_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("firstName_error"))).getText(), property.getString("firstName_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("firstName_error"))).getText(), property.getString("firstName_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, firstName);
@@ -131,11 +132,12 @@ public class CommonMethods extends BaseClass{
 
     //Validate for empty field
         lastName.clear();
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
 //            Assert.assertEquals(lastName_error.getText(), property.getString("lastName_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("lastName_error"))).getText(), property.getString("lastName_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("lastName_error"))).getText(), property.getString("lastName_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, lastName);
@@ -150,11 +152,12 @@ public class CommonMethods extends BaseClass{
 
         phoneNumber.clear();
         phoneNumber.sendKeys("123456789");
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
 //            Assert.assertEquals(phoneNumber_error.getText(), property.getString("phonNumber_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("phoneNumber_error"))).getText(), property.getString("phonNumber_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("phoneNumber_error"))).getText(), property.getString("phonNumber_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, phoneNumber);
@@ -168,11 +171,12 @@ public class CommonMethods extends BaseClass{
 //    for email
     public void email() throws  Exception{
         email.clear();
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
 //            Assert.assertEquals(email_error_empty.getText(), property.getString("email_error_empty").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_empty"))).getText(), property.getString("email_error_empty").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_empty"))).getText(), property.getString("email_error_empty"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, email);
@@ -180,11 +184,12 @@ public class CommonMethods extends BaseClass{
         }
 
         email.sendKeys("test");
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
 //            Assert.assertEquals(email_error_invalid.getText(), property.getString("email_error_invalid").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_invalid"))).getText(), property.getString("email_error_invalid").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_invalid"))).getText(), property.getString("email_error_invalid"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, email);
@@ -211,11 +216,12 @@ public class CommonMethods extends BaseClass{
     public void zipCode() throws Exception{
         zipcode.clear();
         zipcode.sendKeys("1");
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
 //            Assert.assertEquals(zipcode_error.getText(), property.getString("zipcode_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("zipcode_error"))).getText(), property.getString("zipcode_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("zipcode_error"))).getText(), property.getString("zipcode_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, zipcode);
@@ -230,11 +236,12 @@ public class CommonMethods extends BaseClass{
 //  validation for empty field
         password.clear();
         confirmPassword.clear();
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
 //            Assert.assertEquals(password_error.getText(), property.getString("password_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_error"))).getText(), property.getString("password_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_error"))).getText(), property.getString("password_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, password);
@@ -243,7 +250,7 @@ public class CommonMethods extends BaseClass{
 
         try {
 //            Assert.assertEquals(confirmPassword_error.getText(), property.getString("confirmPassword_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("confirmPassword_error"))).getText(), property.getString("confirmPassword_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("confirmPassword_error"))).getText(), property.getString("confirmPassword_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, confirmPassword);
@@ -259,13 +266,15 @@ public class CommonMethods extends BaseClass{
             password.sendKeys(j);
             confirmPassword.sendKeys(j);
             j += Integer.toString(i);
-            create_btn.click();
+//            create_btn.click();
+            driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
+
             if (i == 2) {
                 Thread.sleep(2000);
             }
             try {
 //                Assert.assertEquals(password_limit_error.getText(), property.getString("password_limit_error"));
-                Assert.assertEquals(driver.findElement(By.className(element.getString("password_limit_error"))).getText(), property.getString("password_limit_error"));
+                Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_limit_error"))).getText(), property.getString("password_limit_error"));
             }catch (Throwable t){
                 t.printStackTrace();
                 highlight.highLightElement(driver, password);
@@ -281,7 +290,7 @@ public class CommonMethods extends BaseClass{
         confirmPassword.sendKeys("987654321");
         try {
 //            Assert.assertEquals(password_not_match_error.getText(), property.getString("password_not_match_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_not_match_error"))).getText(), property.getString("password_not_match_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_not_match_error"))).getText(), property.getString("password_not_match_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, password);
@@ -292,7 +301,8 @@ public class CommonMethods extends BaseClass{
         confirmPassword.clear();
         password.sendKeys(property.getString("password"));
         confirmPassword.sendKeys(property.getString("confirmPassword"));
-        create_btn.click();
+//        create_btn.click();
+        driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
     }
 
@@ -309,11 +319,12 @@ public class CommonMethods extends BaseClass{
         user_name.clear();
         password.clear();
         Thread.sleep(2000);
-        login_btn.click();
+//        login_btn.click();
+        driver.findElement(By.cssSelector(element.getString("login_btn"))).click();
 
         try {
 //            Assert.assertEquals(user_name_empty_error.getText(), property.getString("user_name_empty_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_name_empty_error"))).getText(), property.getString("user_name_empty_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_name_empty_error"))).getText(), property.getString("user_name_empty_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, user_name);
@@ -322,7 +333,7 @@ public class CommonMethods extends BaseClass{
 
         try {
 //            Assert.assertEquals(user_password_empty_error.getText(), property.getString("user_password_empty_error").toUpperCase());
-            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_password_empty_error"))).getText(), property.getString("user_password_empty_error").toUpperCase());
+            Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_password_empty_error"))).getText(), property.getString("user_password_empty_error"));
         }catch (Throwable t){
             t.printStackTrace();
             highlight.highLightElement(driver, password);
@@ -335,7 +346,9 @@ public class CommonMethods extends BaseClass{
 //        for invalid password
         user_name.sendKeys("sanjaim@kmitsolutions.com");
         password.sendKeys("12587865");
-        login_btn.click();
+//        login_btn.click();
+        driver.findElement(By.cssSelector(element.getString("login_btn"))).click();
+
         Thread.sleep(2000);
 
         try {
@@ -353,7 +366,9 @@ public class CommonMethods extends BaseClass{
 //        for invalid user
         user_name.sendKeys("testemailid@kmitsolutions.com");
         password.sendKeys("12587865");
-        login_btn.click();
+//        login_btn.click();
+        driver.findElement(By.cssSelector(element.getString("login_btn"))).click();
+
         Thread.sleep(2000);
 
         try {
@@ -369,7 +384,9 @@ public class CommonMethods extends BaseClass{
         user_name.sendKeys(userName);
         password.clear();
         password.sendKeys(userPassword);
-        login_btn.click();
+//        login_btn.click();
+        driver.findElement(By.cssSelector(element.getString("login_btn"))).click();
+
         Thread.sleep(2000);
     }
 }
