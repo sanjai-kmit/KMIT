@@ -2,20 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="KMIT">
     <!--Enter the Site name in below value-->
-    <parameter name="site" value="cwma" />
+    <parameter name="site" value="yale"/>
 
     <!--Enter the site url in below value-->
-    <parameter name="url" value="http://192.168.168.14:505/" />
+    <parameter name="url" value="http://192.168.168.14:963/#/"/>
 
     <!--Enter which module to be tested in the below value-->
-    <parameter name="module" value="tickets" />
+    <parameter name="module" value="tickets"/>
 
     <!--Enter to use as a new user or existing in the below value (value="new" / "exist")-->
-    <parameter name="user" value="new" />
+    <parameter name="user" value="new"/>
 
     <!--Enter user name and password if above user value=exist-->
-    <parameter name="userName" value="sanjaim@kmitsolutions.com" />
-    <parameter name="password" value="123456" />
+    <parameter name="userName" value="sanjaim@kmitsolutions.com"/>
+    <parameter name="password" value="123456"/>
 
     <test name="Test_EComm">
 
@@ -23,18 +23,18 @@
         Enter what to be tested in below name
        - only for sign up: name = test.sign_up
        - only for login : name = test.sign_in
-       - for tickets with new user = test.sign_up.tickets
+       - for tickets with new user = test.tickets
         -->
 
         <groups>
             <run>
-                <include name="test.sign_in" />
+                <include name="test.tickets"/>
             </run>
         </groups>
 
         <!--DO NOT EDIT THIS PACKAGES-->
         <packages>
-            <package name="basePack" />
+            <package name="basePack"/>
         </packages>
 
     </test>
