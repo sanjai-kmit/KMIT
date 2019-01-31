@@ -34,12 +34,12 @@ public class BaseClass {
 
     @Parameters({"site", "url"})
     @BeforeSuite(alwaysRun = true)
-    public void openSetup(String site, String url) throws Exception{
+    public void openSetup(String site, String url) throws Exception {
 
         System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\Selenium WebDriver\\chromeDriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        this.site_name = site;
+        this.site_name = site.toLowerCase();
         this.base_url = url;
         driver.get(this.base_url);
 
@@ -48,7 +48,7 @@ public class BaseClass {
 
         print_screen = new ScreenShot();
         email = new EmailAddress();
-        email.setEmail_id(date_time.format((name))+"test@kmitsolutions.com");
+        email.setEmail_id(date_time.format((name)) + "test@kmitsolutions.com");
         email_id = email.getEmail_id();
 
 //        get Resources File
@@ -57,8 +57,8 @@ public class BaseClass {
     }
 
 
-//    @AfterSuite(alwaysRun = true)
-    public void close_driver(){
+    //    @AfterSuite(alwaysRun = true)
+    public void close_driver() {
         driver.quit();
     }
 }
