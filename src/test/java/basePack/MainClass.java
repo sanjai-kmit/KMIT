@@ -9,7 +9,7 @@ import projects.Tickets;
 
 @Listeners(basePack.Listeners.class)
 
-public class MainClass {
+public class MainClass extends BaseClass{
 
     private Sign_In signin = new Sign_In();
     private Sign_Up signup = new Sign_Up();
@@ -31,8 +31,17 @@ public class MainClass {
         signup.signup();
     }
 
-    @Test(groups = {"test.tickets"})
-    public void test_tickets() throws Exception {
+    @Test(groups = {"test.tickets"}, parameters = {"userName", "password"})
+    public void test_tickets(String userName, String password) throws Exception {
+
+        if (user.equals("new")){
+            signup.signup();
+        } else if (user.equals("exist")){
+            signin.signin(userName, password);
+        }
+
+        Thread.sleep(1000);
+
         ticket.tickets();
     }
 }

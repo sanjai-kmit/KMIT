@@ -1,14 +1,15 @@
 package basePack;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
-public class Cart_functionality extends BaseClass{
+import java.util.concurrent.TimeUnit;
 
-    public void go_to_cart(){
+public class Cart_functionality extends BaseClass {
 
+    public void go_to_cart() throws Exception{
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.id(element.getString("cart"))).click();
-
+        Thread.sleep(2000);
         driver.findElement(By.id(element.getString("checkout"))).click();
     }
 }
