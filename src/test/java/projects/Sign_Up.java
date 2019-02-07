@@ -6,7 +6,6 @@ import org.testng.Assert;
 
 public class Sign_Up extends BaseClass {
 
-
     public void signup() throws Exception{
 
         driver.navigate().to(base_url + element.getString("signup"));
@@ -33,6 +32,18 @@ public class Sign_Up extends BaseClass {
             method.zipCode();
             method.password_confirmPassword();
         }else if (site_name.equals("cwma")){
+            method.firstName();
+            method.lastName();
+            method.phoneNumber();
+            method.email();
+            method.password_confirmPassword();
+        }else if (site_name.equals("yale")){
+            method.firstName();
+            method.lastName();
+            method.phoneNumber();
+            method.email();
+            method.password_confirmPassword();
+        }else if(site_name.equals("gren")){
             method.firstName();
             method.lastName();
             method.phoneNumber();

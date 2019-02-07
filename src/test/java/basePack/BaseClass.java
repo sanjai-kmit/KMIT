@@ -4,10 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import org.testng.annotations.Listeners;
-import sources.EmailAddress;
-import sources.Highligher;
-import sources.ScreenShot;
+import sources.*;
 
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -18,6 +17,7 @@ public class BaseClass {
 
     public static String site_name;
     public static String base_url;
+    public static String user;
 
     public static WebDriver driver;
     public static EmailAddress email;
@@ -31,20 +31,30 @@ public class BaseClass {
 
     public static Highligher highlight;
 
+    public static CreateResult result = new CreateResult();
 
-    @Parameters({"site", "url"})
+    String username = System.getProperty("user.name");
+
+
+    @Parameters({"site", "url", "user"})
     @BeforeSuite(alwaysRun = true)
-    public void openSetup(String site, String url) throws Exception {
+    public void openSetup(String site, String url, String user) throws Exception {
+
+
+        date_time = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
+        name = LocalDateTime.now();
+
+//        result.create_html(date_time.format(name));
+
+//        result.create_mail();
 
         System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\Selenium WebDriver\\chromeDriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         this.site_name = site.toLowerCase();
         this.base_url = url;
+        this.user = user.toLowerCase();
         driver.get(this.base_url);
-
-        date_time = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
-        name = LocalDateTime.now();
 
         print_screen = new ScreenShot();
         email = new EmailAddress();
@@ -57,8 +67,9 @@ public class BaseClass {
     }
 
 
-    //    @AfterSuite(alwaysRun = true)
-    public void close_driver() {
+        @AfterSuite(alwaysRun = true)
+    public void close_driver()throws Exception{
+        result.create_mail(username, site_name, base_url);
         driver.quit();
     }
 }
