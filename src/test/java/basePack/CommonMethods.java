@@ -113,6 +113,7 @@ public class CommonMethods extends BaseClass{
         //Validate for empty field
         firstName.clear();
 //        create_btn.click();
+        Thread.sleep(2000);
         driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
         try {
