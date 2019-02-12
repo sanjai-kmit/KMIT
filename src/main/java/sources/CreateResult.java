@@ -17,6 +17,10 @@ public class CreateResult {
 
     public void create_mail(String user, String site, String url) throws Exception{
 
+        /* https://support.google.com/a/answer/7223765?hl=en
+        *
+        * to use KMIT Email in from address
+         */
 
             // Create object of Property file
             Properties prop = new Properties();
@@ -62,7 +66,11 @@ public class CreateResult {
             message.setFrom(new InternetAddress("sannila4369@gmail.com"));
 
             // Set the recipient address
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("sannila4369@gmail.com"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress("sanjaim@kmitsolutions.com"));
+
+            String address = "sannila1527@gmail.com,sannila4369@gmail.com";
+            InternetAddress[] iAdressArray = InternetAddress.parse(address);
+            message.addRecipients(Message.RecipientType.CC, iAdressArray);
 
             // Add subject line
             message.setSubject("KMIT Automation Test Result");
