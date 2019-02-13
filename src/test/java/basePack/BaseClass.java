@@ -7,6 +7,8 @@ import org.testng.annotations.Listeners;
 import sources.*;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -48,7 +50,7 @@ public class BaseClass {
 
 //        result.create_mail();
 
-        System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\Selenium WebDriver\\chromeDriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", new File("chromedriver.exe").getAbsolutePath());
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         this.site_name = site.toLowerCase();
