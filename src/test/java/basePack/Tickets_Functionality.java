@@ -36,7 +36,5 @@ public class Tickets_Functionality extends BaseClass {
         }
 
         driver.findElement(By.id(element.getString("add_to_cart"))).click();
-
-
     }
 }
