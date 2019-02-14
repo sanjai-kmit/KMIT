@@ -38,6 +38,7 @@ public class BaseClass {
     String username = System.getProperty("user.name");
 
 
+//    this is to open the driver to start the test
     @Parameters({"site", "url", "user"})
     @BeforeSuite(alwaysRun = true)
     public void openSetup(String site, String url, String user) throws Exception {
@@ -46,19 +47,25 @@ public class BaseClass {
         date_time = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
         name = LocalDateTime.now();
 
-//        result.create_html(date_time.format(name));
-
-//        result.create_mail();
-
+//      set the driver (browser) path
         System.setProperty("webdriver.chrome.driver", new File("chromedriver.exe").getAbsolutePath());
+
+//        open & maximize the driver
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+
+//        get the site name and url
         this.site_name = site.toLowerCase();
         this.base_url = url;
         this.user = user.toLowerCase();
+
+//        pass the url to the driver
         driver.get(this.base_url);
 
+//        create an object to get the screenshot method / refer -> D:\gradleProject\workfolder\KMIT\src\main\java\sources\ScreenShot.java
         print_screen = new ScreenShot();
+
+//        create an object to get the email id / refer -> D:\gradleProject\workfolder\KMIT\src\main\java\sources\EmailAddress.java
         email = new EmailAddress();
         email.setEmail_id(date_time.format((name)) + "test@kmitsolutions.com");
         email_id = email.getEmail_id();
@@ -69,6 +76,7 @@ public class BaseClass {
     }
 
 
+//    this is to close the driver after test completes
         @AfterSuite(alwaysRun = true)
     public void close_driver()throws Exception{
         result.create_mail(username, site_name, base_url);

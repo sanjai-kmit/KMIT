@@ -33,27 +33,11 @@ public class CreateResult {
             prop.put("mail.smtp.user", "sannila4369@gmail.com");
             prop.put("mail.smtp.password", "sannila@1");
 
-            // set the port of socket factory
-//            prop.put("mail.smtp.socketFactory.port", "456");
-
-            // set socket factory
-//            prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-
             // set the port of SMTP server
             prop.put("mail.smtp.port", "587");
 
             // set the authentication to true
             prop.put("mail.smtp.auth", "true");
-
-
-            // This will handle the complete authentication
-/*            Session session = Session.getDefaultInstance(prop,
-                    new javax.mail.Authenticator(){
-                        protected PasswordAuthentication getPasswordAuthentication(){
-                            return new PasswordAuthentication("sannila4369@gmail.com", "sannila@1");
-                        }
-                    }
-            );*/
 
             Session session = Session.getDefaultInstance(prop, null);
 
@@ -91,27 +75,4 @@ public class CreateResult {
         }
 
     }
-
-
-    /*
-    public Writer wr;
-
-    public void create_html(String date)throws Exception{
-
-        String username = System.getProperty("user.name");
-        File directory_path = new File("C:\\Users\\" + username + "\\Desktop\\Automation_Test_Result");
-        if (!directory_path.exists()){
-            new File("C:\\Users\\" + username + "\\Desktop\\Automation_Test_Result").mkdirs();
-        }
-
-        try {
-            wr = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(directory_path + "\\" + date + ".html")));
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    public void close_html() throws Exception{
-        wr.close();
-    }*/
 }

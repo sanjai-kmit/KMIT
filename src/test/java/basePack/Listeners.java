@@ -1,7 +1,6 @@
 package basePack;
 
 import org.testng.*;
-import sources.ScreenShot;
 
 public class Listeners implements ITestListener, ISuiteListener {
     @Override
@@ -49,5 +48,4 @@ public class Listeners implements ITestListener, ISuiteListener {
         System.out.println("\nAbout to end executing Suite: " + suite.getName() + "\n");
     }
 
-//    ****
 }
