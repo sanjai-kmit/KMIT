@@ -20,6 +20,7 @@ public class BaseClass extends DB_Connections{
     public static String site_name;
     public static String base_url;
     public static String user;
+    public static String send_to;
 
     public static WebDriver driver;
     public static EmailAddress email;
@@ -34,7 +35,10 @@ public class BaseClass extends DB_Connections{
     public static Highligher highlight;
 
     public static CreateResult result = new CreateResult();
-    public static String email_message;
+
+//    for text file writer
+    public static FileWriter txt_file;
+    public static BufferedWriter txt_write;
 
     String username = System.getProperty("user.name");
 
@@ -42,9 +46,15 @@ public class BaseClass extends DB_Connections{
 
 
 //    this is to open the driver to start the test
-    @Parameters({"site", "url", "user", "E_comm_server", "E_comm_port", "E_comm_data_base_name", "E_comm_userName", "E_comm_password"})
+    @Parameters({"site", "url", "user", "to_email", "E_comm_server", "E_comm_port", "E_comm_data_base_name", "E_comm_userName", "E_comm_password"})
     @BeforeSuite(alwaysRun = true)
-    public void openSetup(String site, String url, String user, String E_comm_server, String E_comm_port, String E_comm_data_base_name, String E_comm_userName, String E_comm_password) throws Exception {
+    public void openSetup(String site, String url, String user, String to_email, String E_comm_server, String E_comm_port, String E_comm_data_base_name, String E_comm_userName, String E_comm_password) throws Exception {
+
+//        for txt file
+        txt_file = new FileWriter(new File("Test_Result.txt").getAbsolutePath());
+        txt_write = new BufferedWriter(txt_file);
+
+        txt_write.write("Below is the Tested Details\n");
 
         DB_Connections db_conn = new DB_Connections();
         db_conn.e_comm_connection(E_comm_server, E_comm_port, E_comm_data_base_name, E_comm_userName, E_comm_password);
@@ -64,6 +74,7 @@ public class BaseClass extends DB_Connections{
         this.site_name = site.toLowerCase();
         this.base_url = url;
         this.user = user.toLowerCase();
+        this.send_to = to_email;
 
 //        pass the url to the driver
         driver.get(this.base_url);
@@ -73,7 +84,7 @@ public class BaseClass extends DB_Connections{
 
 //        create an object to get the email id / refer -> D:\gradleProject\workfolder\KMIT\src\main\java\sources\EmailAddress.java
         email = new EmailAddress();
-        email.setEmail_id(date_time.format((name)) + "test@kmitsolutions.com");
+        email.setEmail_id(date_time.format((name)) + "automationEmail@kmitsolutions.com");
         email_id = email.getEmail_id();
 
 //        get Resources File
@@ -85,8 +96,10 @@ public class BaseClass extends DB_Connections{
 //    this is to close the driver after test completes
         @AfterSuite(alwaysRun = true)
     public void close_driver()throws Exception{
-        result.create_mail(username, site_name, base_url);
-        result.close_email(email_message);
+
+            txt_write.close();
+        result.create_mail(username, site_name, base_url, send_to);
+//        result.close_email(email_message);
         connection.close();
         driver.quit();
     }
