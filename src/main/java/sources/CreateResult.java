@@ -1,5 +1,8 @@
 package sources;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -17,7 +20,7 @@ public class CreateResult {
         public static Session session;
 
 
-        public void create_mail(String user, String site, String url) throws Exception{
+        public void create_mail(String user, String site, String url, String send_to) throws Exception{
 
         /* https://support.google.com/a/answer/7223765?hl=en
         *
@@ -52,38 +55,46 @@ public class CreateResult {
             message.setFrom(new InternetAddress("sannila4369@gmail.com"));
 
             // Set the recipient address
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress("sanjaim@kmitsolutions.com"));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(send_to));
 
-            String address = "sannila1527@gmail.com,sannila4369@gmail.com";
+//            This is for CC address
+            /*String address = "sannila1527@gmail.com,sannila4369@gmail.com";
             InternetAddress[] iAdressArray = InternetAddress.parse(address);
-            message.addRecipients(Message.RecipientType.CC, iAdressArray);
+            message.addRecipients(Message.RecipientType.CC, iAdressArray);*/
 
             // Add subject line
             message.setSubject("KMIT Automation Test Result");
 
-            /*message.setContent("This is sample Message Content", "text/html");
-            message.setContent("Hi " + user + "\n Test Completed for " + site + " with following url: " + url, "text/html");*/
+//            message.setContent("Find the attachment for the results", "text/html");
 
+//            Add the file attachment
+            String fileName = "KMIT E-comm Test Result";
 
+            Multipart multipart = new MimeMultipart();
+            MimeBodyPart textBodyPart = new MimeBodyPart();
+            textBodyPart.setText("Hi,\nTest Completed to the given site: " + site + " - " + url + "\nFind the attachment for more details.");
 
+            MimeBodyPart attachment = new MimeBodyPart();
+            DataSource source = new FileDataSource(new File("Test_Result.txt").getAbsolutePath());
+            attachment.setDataHandler(new DataHandler(source));
+            attachment.setFileName("Test_Result.txt");
+
+            multipart.addBodyPart(textBodyPart);
+            multipart.addBodyPart(attachment);
+
+            message.setContent(multipart);
+
+//****
+            Transport transport = session.getTransport("smtp");
+            transport.connect("smtp.gmail.com", "sannila4369@gmail.com", "sannila@1");
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+
+            System.out.println("message sent");
 
         } catch (MessagingException e){
             e.printStackTrace();
         }
 
-    }
-
-    public void close_email(String messages)throws Exception{
-        try {
-                message.setContent(messages, "text/html");
-                Transport transport = session.getTransport("smtp");
-                transport.connect("smtp.gmail.com", "sannila4369@gmail.com", "sannila@1");
-                transport.sendMessage(message, message.getAllRecipients());
-                transport.close();
-
-                System.out.println("message sent");
-        } catch (MessagingException e){
-                e.printStackTrace();
-        }
     }
 }

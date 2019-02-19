@@ -16,6 +16,9 @@
     <!--Enter user name and password if above user value=exist-->
     <parameter name="userName" value="sanjaim@kmitsolutions.com"/>
     <parameter name="password" value="123456"/>
+
+    <!--Enter the email id to which you want to receive Email result-->
+    <parameter name="to_email" value="praveenk@kmitsolutions.com" />
     
     <!--
     *
@@ -47,7 +50,7 @@
 
         <groups>
             <run>
-                <include name="test.sign_up"/>
+                <include name="test.sign_in"/>
             </run>
         </groups>
 
