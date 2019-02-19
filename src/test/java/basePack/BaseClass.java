@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 @Listeners(basePack.Listeners.class)
 
-public class BaseClass {
+public class BaseClass extends DB_Connections{
 
     public static String site_name;
     public static String base_url;
@@ -34,14 +34,20 @@ public class BaseClass {
     public static Highligher highlight;
 
     public static CreateResult result = new CreateResult();
+    public static String email_message;
 
     String username = System.getProperty("user.name");
 
 
+
+
 //    this is to open the driver to start the test
-    @Parameters({"site", "url", "user"})
+    @Parameters({"site", "url", "user", "E_comm_server", "E_comm_port", "E_comm_data_base_name", "E_comm_userName", "E_comm_password"})
     @BeforeSuite(alwaysRun = true)
-    public void openSetup(String site, String url, String user) throws Exception {
+    public void openSetup(String site, String url, String user, String E_comm_server, String E_comm_port, String E_comm_data_base_name, String E_comm_userName, String E_comm_password) throws Exception {
+
+        DB_Connections db_conn = new DB_Connections();
+        db_conn.e_comm_connection(E_comm_server, E_comm_port, E_comm_data_base_name, E_comm_userName, E_comm_password);
 
 
         date_time = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss");
@@ -80,6 +86,8 @@ public class BaseClass {
         @AfterSuite(alwaysRun = true)
     public void close_driver()throws Exception{
         result.create_mail(username, site_name, base_url);
+        result.close_email(email_message);
+        connection.close();
         driver.quit();
     }
 }

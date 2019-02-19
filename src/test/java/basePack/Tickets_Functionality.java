@@ -14,16 +14,18 @@ public class Tickets_Functionality extends BaseClass {
 
 
     public void tickets() throws Exception {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         List<String> type_1 = new ArrayList<String>();
         type_1.add("yale");
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         List<WebElement> counter_plus = driver.findElements(By.cssSelector(".counter-plus"));
 
+//        to get the position of the .counter-plus button, to avoid to click on hidden buttons
         Random select = new Random();
 
         for (int i = 0; i <= counter_plus.size(); i++) {
@@ -32,9 +34,12 @@ public class Tickets_Functionality extends BaseClass {
                 if (j % 2 != 0) {
                     counter_plus.get(j).click();
                 }
+            } else {
+                counter_plus.get(j).click();
             }
         }
 
-        driver.findElement(By.id(element.getString("add_to_cart"))).click();
+        WebElement add_to_cart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(element.getString("add_to_cart"))));
+        add_to_cart.click();
     }
 }

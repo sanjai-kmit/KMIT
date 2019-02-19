@@ -144,6 +144,7 @@ public class CommonMethods extends BaseClass{
         email.clear();
         email.sendKeys(email_id);
         System.out.println("Email Id used for Registration is: " + email_id);
+        email_message = "Hi " + username +"\nNew user created with the User Name: " + email_id + "\n";
     }
 
 //    for address
@@ -243,6 +244,7 @@ public class CommonMethods extends BaseClass{
 
         driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
 
+        email_message = email_message + "\nwith Password: " + property.getString("password");
     }
 
     /*
@@ -323,5 +325,7 @@ public class CommonMethods extends BaseClass{
         driver.findElement(By.cssSelector(element.getString("login_btn"))).click();
 
         Thread.sleep(2000);
+
+        email_message = "Logged In with Username: " + userName;
     }
 }
