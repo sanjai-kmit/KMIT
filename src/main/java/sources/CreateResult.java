@@ -13,9 +13,11 @@ import java.util.Properties;
 public class CreateResult {
 
 
+        public static MimeMessage message;
+        public static Session session;
 
 
-    public void create_mail(String user, String site, String url) throws Exception{
+        public void create_mail(String user, String site, String url) throws Exception{
 
         /* https://support.google.com/a/answer/7223765?hl=en
         *
@@ -39,12 +41,12 @@ public class CreateResult {
             // set the authentication to true
             prop.put("mail.smtp.auth", "true");
 
-            Session session = Session.getDefaultInstance(prop, null);
+            session = Session.getDefaultInstance(prop, null);
 
             try {
 
             // Create object of MimeMessage class
-            MimeMessage message = new MimeMessage(session);
+            message = new MimeMessage(session);
 
             // set the form address
             message.setFrom(new InternetAddress("sannila4369@gmail.com"));
@@ -59,20 +61,29 @@ public class CreateResult {
             // Add subject line
             message.setSubject("KMIT Automation Test Result");
 
-            message.setContent("This is sample Message Content", "text/html");
-            message.setContent("Hi " + user + "\n Test Completed for " + site + " with following url: " + url, "text/html");
+            /*message.setContent("This is sample Message Content", "text/html");
+            message.setContent("Hi " + user + "\n Test Completed for " + site + " with following url: " + url, "text/html");*/
 
 
-            Transport transport = session.getTransport("smtp");
-            transport.connect("smtp.gmail.com", "sannila4369@gmail.com", "sannila@1");
-            transport.sendMessage(message, message.getAllRecipients());
-            transport.close();
 
-            System.out.println("message sent");
 
         } catch (MessagingException e){
             e.printStackTrace();
         }
 
+    }
+
+    public void close_email(String messages)throws Exception{
+        try {
+                message.setContent(messages, "text/html");
+                Transport transport = session.getTransport("smtp");
+                transport.connect("smtp.gmail.com", "sannila4369@gmail.com", "sannila@1");
+                transport.sendMessage(message, message.getAllRecipients());
+                transport.close();
+
+                System.out.println("message sent");
+        } catch (MessagingException e){
+                e.printStackTrace();
+        }
     }
 }

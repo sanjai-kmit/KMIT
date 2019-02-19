@@ -2,20 +2,39 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="KMIT">
     <!--Enter the Site name in below value-->
-    <parameter name="site" value="yale"/>
+    <parameter name="site" value="erie"/>
 
     <!--Enter the site url in below value-->
-    <parameter name="url" value="http://192.168.168.14:963/#/"/>
+    <parameter name="url" value="http://192.168.168.14:463/#/"/>
 
     <!--Enter which module to be tested in the below value-->
     <parameter name="module" value="tickets"/>
 
     <!--Enter to use as a new user or existing in the below value (value="new" / "exist")-->
-    <parameter name="user" value="new"/>
+    <parameter name="user" value="exist"/>
 
     <!--Enter user name and password if above user value=exist-->
     <parameter name="userName" value="sanjaim@kmitsolutions.com"/>
     <parameter name="password" value="123456"/>
+    
+    <!--
+    *
+    *
+    *For Data Base Only
+    *
+    *
+    -->
+
+    <!--
+    * for E-comm DB
+    *
+    -->
+    
+    <parameter name="E_comm_server" value="192.168.168.14" />
+    <parameter name="E_comm_port" value="1435" />
+    <parameter name="E_comm_data_base_name" value="ERIEecomm_feb2019" />
+    <parameter name="E_comm_userName" value="sa" />
+    <parameter name="E_comm_password" value="kmit123$" />
 
     <test name="Test_EComm">
 
@@ -28,7 +47,7 @@
 
         <groups>
             <run>
-                <include name="test.tickets"/>
+                <include name="test.sign_up"/>
             </run>
         </groups>
 

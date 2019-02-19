@@ -1,11 +1,13 @@
 package basePack;
 
+import data_base.E_Comm_DB;
 import org.testng.annotations.Test;
 import projects.Home;
 import projects.Sign_In;
 import projects.Sign_Up;
 import org.testng.annotations.Listeners;
 import projects.Tickets;
+import sources.DB_Connections;
 
 @Listeners(basePack.Listeners.class)
 
@@ -14,6 +16,7 @@ public class MainClass extends BaseClass{
     private Sign_In signin = new Sign_In();
     private Sign_Up signup = new Sign_Up();
     private Tickets ticket = new Tickets();
+    private E_Comm_DB e_comm_db = new E_Comm_DB();
 
     @Test(groups = {"test.home"})
     public void test_home() {
@@ -29,6 +32,7 @@ public class MainClass extends BaseClass{
     @Test(groups = {"test.sign_up"})
     public void test_sign_up() throws Exception {
         signup.signup();
+        e_comm_db.aspNetUsers(email_id);
     }
 
     @Test(groups = {"test.tickets"}, parameters = {"userName", "password"})
