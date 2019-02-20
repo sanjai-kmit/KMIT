@@ -1,0 +1,14 @@
+20-02-2019 12:58:19 INFO [BaseClass]: Data Base connection completed
+20-02-2019 12:58:26 INFO [BaseClass]: Driver open got success
+20-02-2019 12:58:26 INFO [BaseClass]: Site to Test: erie
+20-02-2019 12:58:26 INFO [BaseClass]: Url used for Testing: http://192.168.168.14:463/#/
+20-02-2019 12:58:26 INFO [BaseClass]: Testing with exist user
+20-02-2019 12:58:38 INFO [BaseClass]: Tested: First Name field - given value is: Virat
+20-02-2019 12:58:39 INFO [BaseClass]: Tested: Last Name field - given value is: Kohli
+20-02-2019 12:58:40 INFO [BaseClass]: Tested: Phone Number field - given value is: 5417543010
+20-02-2019 12:58:42 INFO [BaseClass]: Tested: Email field - given value is: 2019_02_20_12_58_20automationEmail@kmitsolutions.com
+20-02-2019 12:58:43 INFO [BaseClass]: Tested: Address field - given value is: 80 53rd Ave.
+20-02-2019 12:58:44 INFO [BaseClass]: Tested: City field - given value is: Woburn
+20-02-2019 12:58:45 INFO [BaseClass]: Tested: Zipcode field - given value is: 01801
+20-02-2019 12:58:53 INFO [BaseClass]: Tested: Password field - given value is: test123456
+20-02-2019 12:58:54 INFO [BaseClass]: Tested: Confirm Password field - given value is: test123456

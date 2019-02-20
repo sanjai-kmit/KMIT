@@ -11,7 +11,7 @@ public class Sign_Up extends BaseClass {
         driver.navigate().to(base_url + element.getString("signup"));
 
 //        check for Sign up page title
-        try { Assert.assertEquals(driver.getTitle(), property.getString("sign_up_page_title")); }catch (Exception e){ System.out.println(e); }
+        try { Assert.assertEquals(driver.getTitle(), property.getString("sign_up_page_title")); }catch (Exception e){ log.error(e); }
 
 //        Sign up field functionality
         CommonMethods method = new CommonMethods(driver);

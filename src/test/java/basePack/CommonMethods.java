@@ -73,12 +73,14 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("firstName_error"))).getText().toLowerCase(), property.getString("firstName_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, firstName);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
         firstName.clear();
         firstName.sendKeys(property.getString("firstName"));
+
+        log.info("Tested: First Name field - given value is: " + property.getString("firstName"));
     }
 
 //    for lastname
@@ -91,12 +93,14 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("lastName_error"))).getText().toLowerCase(), property.getString("lastName_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, lastName);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
         lastName.clear();
         lastName.sendKeys(property.getString("lastName"));
+
+        log.info("Tested: Last Name field - given value is: " + property.getString("lastName"));
     }
 
 //    for phoneNumber
@@ -109,12 +113,14 @@ public class CommonMethods extends BaseClass{
             try {
                 Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("phoneNumber_error"))).getText().toLowerCase(), property.getString("phonNumber_error").toLowerCase());
             }catch (Throwable t){
-            t.printStackTrace();
+                log.error(t);
             highlight.highLightElement(driver, phoneNumber);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
         phoneNumber.clear();
         phoneNumber.sendKeys(property.getString("phoneNumber"));
+
+        log.info("Tested: Phone Number field - given value is: " + property.getString("phoneNumber"));
     }
 
 
@@ -126,7 +132,7 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_empty"))).getText().toLowerCase(), property.getString("email_error_empty").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, email);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
@@ -137,26 +143,30 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("email_error_invalid"))).getText().toLowerCase(), property.getString("email_error_invalid").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, email);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
         email.clear();
         email.sendKeys(email_id);
 
-        txt_write.write("New user created with email Id: " + email_id + "\n");
+        log.info("Tested: Email field - given value is: " + email_id);
     }
 
 //    for address
     public void address(){
         address.clear();
         address.sendKeys(property.getString("addressLine_1"));
+
+        log.info("Tested: Address field - given value is: " + property.getString("addressLine_1"));
     }
 
 //    for city
     public void city(){
         city.clear();
         city.sendKeys(property.getString("city"));
+
+        log.info("Tested: City field - given value is: " + property.getString("city"));
     }
 
 //    for zipcode
@@ -168,12 +178,14 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("zipcode_error"))).getText().toLowerCase(), property.getString("zipcode_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, zipcode);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
         zipcode.clear();
         zipcode.sendKeys(property.getString("zipcode"));
+
+        log.info("Tested: Zipcode field - given value is: " + property.getString("zipcode"));
     }
 
 // for password
@@ -186,7 +198,7 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_error"))).getText().toLowerCase(), property.getString("password_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, password);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
@@ -194,7 +206,7 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("confirmPassword_error"))).getText().toLowerCase(), property.getString("confirmPassword_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, confirmPassword);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
@@ -217,7 +229,7 @@ public class CommonMethods extends BaseClass{
             try {
                 Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_limit_error"))).getText().toLowerCase(), property.getString("password_limit_error").toLowerCase());
             }catch (Throwable t){
-                t.printStackTrace();
+                log.error(t);
                 highlight.highLightElement(driver, password);
                 print_screen.takeScreenShot(driver, date_time.format(name));
             }
@@ -232,19 +244,21 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("password_not_match_error"))).getText().toLowerCase(), property.getString("password_not_match_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, password);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
 
         password.clear();
         confirmPassword.clear();
+
         password.sendKeys(property.getString("password"));
+        log.info("Tested: Password field - given value is: " + property.getString("password"));
+
         confirmPassword.sendKeys(property.getString("confirmPassword"));
+        log.info("Tested: Confirm Password field - given value is: " + property.getString("confirmPassword"));
 
         driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
-
-        txt_write.write("With given password: " + property.getString("password") + "\n");
     }
 
     /*
@@ -266,7 +280,7 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_name_empty_error"))).getText().toLowerCase(), property.getString("user_name_empty_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, user_name);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
@@ -274,7 +288,7 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_password_empty_error"))).getText().toLowerCase(), property.getString("user_password_empty_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, password);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
@@ -293,7 +307,7 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_invalid_error"))).getText().toLowerCase(), property.getString("user_password_invalid_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, password);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
@@ -312,20 +326,24 @@ public class CommonMethods extends BaseClass{
         try {
             Assert.assertEquals(driver.findElement(By.cssSelector(element.getString("user_invalid_error"))).getText().toLowerCase(), property.getString("user_name_invalid_error").toLowerCase());
         }catch (Throwable t){
-            t.printStackTrace();
+            log.error(t);
             highlight.highLightElement(driver, user_name);
             print_screen.takeScreenShot(driver, date_time.format(name));
         }
 
         user_name.clear();
         user_name.sendKeys(userName);
+        log.info("Tested: User Name field - given value is: " + userName);
+
         password.clear();
         password.sendKeys(userPassword);
+        log.info("Tested: Password Field - given value is: " + userPassword);
 
         driver.findElement(By.cssSelector(element.getString("login_btn"))).click();
 
         Thread.sleep(2000);
 
-        txt_write.write("Logged In with given Username: " + userName + "\nLogged in with given password: " + userPassword);
+
+
     }
 }
