@@ -75,7 +75,7 @@ public class CreateResult {
             textBodyPart.setText("Hi,\nTest Completed to the given site: " + site + " - " + url + "\nFind the attachment for more details.");
 
             MimeBodyPart attachment = new MimeBodyPart();
-            DataSource source = new FileDataSource(new File("Test_Result.txt").getAbsolutePath());
+            DataSource source = new FileDataSource(new File("src\\logfile.log").getAbsolutePath());
             attachment.setDataHandler(new DataHandler(source));
             attachment.setFileName("Test_Result.txt");
 
