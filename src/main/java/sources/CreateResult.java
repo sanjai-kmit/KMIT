@@ -72,7 +72,7 @@ public class CreateResult {
 
             Multipart multipart = new MimeMultipart();
             MimeBodyPart textBodyPart = new MimeBodyPart();
-            textBodyPart.setText("Hi,\nTest Completed to the given site: " + site + " - " + url + "\nFind the attachment for more details.");
+            textBodyPart.setText("Hi,\nTest Completed to the given site: " + site + " - " + url + "\nKindly check for \"Selenium_images\" folder created in your desktop, for any error screenshots.\nFind the attachment for more details.\n");
 
             MimeBodyPart attachment = new MimeBodyPart();
             DataSource source = new FileDataSource(new File("src\\logfile.log").getAbsolutePath());
@@ -89,9 +89,6 @@ public class CreateResult {
             transport.connect("smtp.gmail.com", "sannila4369@gmail.com", "sannila@1");
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-
-            System.out.println("message sent");
-
         } catch (MessagingException e){
             e.printStackTrace();
         }

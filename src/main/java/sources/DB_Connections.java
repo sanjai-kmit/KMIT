@@ -19,6 +19,5 @@ public class DB_Connections {
         Class.forName(db_driver);
 
         connection = DriverManager.getConnection(url, userName, password);
-        System.out.println("DB Connected");
     }
 }
