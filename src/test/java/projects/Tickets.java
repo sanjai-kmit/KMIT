@@ -16,18 +16,13 @@ public class Tickets extends BaseClass {
 
         Thread.sleep(2000);
 
-        Cart_Functionality cart = new Cart_Functionality();
-        cart.go_to_cart();
-
-        Thread.sleep(2000);
-
         Shoppint_Cart_Functionality checkout = new Shoppint_Cart_Functionality();
         checkout.check_out();
 
         Thread.sleep(2000);
 
-        Billing_Info_Functionality billing = new Billing_Info_Functionality();
-        billing.billing_info();
+/*        Billing_Info_Functionality billing = new Billing_Info_Functionality();
+        billing.billing_info();*/
     }
 
 }

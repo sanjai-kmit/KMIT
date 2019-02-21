@@ -67,4 +67,30 @@ public class DB_Columns extends BaseClass {
             log.error("Data Base: Table - AspNetUsers - PostalZipCode - " + t);
         }
     }
+
+    public String db_CustomerTypeCode(String userName)throws Exception{
+
+        statement = connection.createStatement();
+
+        String qry_string = null;
+
+        if (user.equalsIgnoreCase("exist")){
+            qry_string = "SELECT * FROM AspNetUsers WHERE UserName = '"+ userName + "'" ;
+
+        } else if (user.equalsIgnoreCase("new")){
+            qry_string = "SELECT * FROM AspNetUsers WHERE UserName = '"+ email_id + "'" ;
+        }
+        e_comm = statement.executeQuery(qry_string);
+
+        while (e_comm.next()) {
+
+            try {
+                customerType = e_comm.getString("CustomerTypeCode");
+                log.info("Data Base: Table - AspNetUsers - CustomerTypeCode - " + customerType);
+            } catch (Throwable t) {
+                log.error("Data Base: Table - AspNetUsers - CustomerTypeCode - " + t);
+            }
+        }
+        return customerType;
+    }
 }
