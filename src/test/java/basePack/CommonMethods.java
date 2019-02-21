@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class CommonMethods extends BaseClass{
@@ -259,6 +261,8 @@ public class CommonMethods extends BaseClass{
         log.info("Tested: Confirm Password field - given value is: " + property.getString("confirmPassword"));
 
         driver.findElement(By.cssSelector(element.getString("create_btn"))).click();
+
+        Thread.sleep(10000);
     }
 
     /*
@@ -342,8 +346,95 @@ public class CommonMethods extends BaseClass{
         driver.findElement(By.cssSelector(element.getString("login_btn"))).click();
 
         Thread.sleep(2000);
+    }
+
+//    for calendar
+    public void select_calendar()throws Exception{
+        driver.findElement(By.cssSelector(element.getString("calendar"))).click();
+
+        SimpleDateFormat format_date = new SimpleDateFormat("dd");
+        SimpleDateFormat formate_month = new SimpleDateFormat("MM");
+        SimpleDateFormat formate_year = new SimpleDateFormat("yyyy");
+        Date date = new Date();
+
+        String to_date = format_date.format(date);
+        int current_date = Integer.parseInt(to_date);
+
+        String to_month = formate_month.format(date);
+        int current_month = Integer.parseInt(to_month);
+
+        String to_year = formate_year.format(date);
+        int current_year = Integer.parseInt(to_year);
+
+/*        System.out.println("current_date: " + current_date);
+        System.out.println("current_month: " + current_month);
+        System.out.println("current_year: " + current_year);*/
+
+        int numDays = 0;
+
+        switch (current_month){
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                numDays = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                numDays = 30;
+                break;
+            case 2:
+                if (current_year % 4 == 0){
+                    numDays = 29;
+                } else if(!(current_year % 4 == 0)){
+                    numDays = 28;
+                }
+
+        }
+
+        List<WebElement> event_available = driver.findElements(By.cssSelector(element.getString("event_available")));
+        int no_of_event_available = event_available.size();
+
+//        System.out.println("numDays: " + numDays);
+
+        Random random = new Random();
+
+        int min_date = current_date;
+        int max_date = numDays;
+        int select = random.nextInt(max_date - min_date) + min_date;
+
+//        System.out.println("select: " + select);
+
+//        String select_date = Integer.toString(select);
+
+//        driver.findElement(By.linkText(select_date)).click();
+        int event = (select - no_of_event_available) + 1;
+/*        System.out.println("no_of_event_available: " + no_of_event_available);
+        System.out.println("event: " + event);*/
+        for (int i = event; i == event; i++){
+            event_available.get(i).click();
+        }
+
+        log.info("Ticket: Date selected for : " + current_year + "-" + current_month + "-" + current_date);
+        Thread.sleep(2000);
 
 
+//        *********
+
+//        below is to get the day of the date
+/*        String dateString = String.format("%d-%d-%d", current_date, current_month, current_year);
+        Date date1 = new SimpleDateFormat("d-M-yyyy").parse(dateString);
+
+        String current_day = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date1);
+        System.out.println("current_day: " + current_day);*/
+
+
+//        *********
 
     }
 }

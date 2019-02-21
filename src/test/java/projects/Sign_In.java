@@ -10,6 +10,7 @@ public class Sign_In extends BaseClass{
 
     public void signin(String userName, String password) throws Exception{
         driver.get(base_url + element.getString("signin"));
+        log.info("Navigated: to signin page");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 //        check for Sign up page title
@@ -20,5 +21,7 @@ public class Sign_In extends BaseClass{
 //        Sign up field functionality
         CommonMethods method = new CommonMethods(driver);
         method.login_validation(userName, password);
+
+        log.info("Tested: Sign In page functionality");
     }
 }

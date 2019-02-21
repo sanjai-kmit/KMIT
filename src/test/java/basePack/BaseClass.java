@@ -29,6 +29,8 @@ public class BaseClass extends DB_Connections{
     public static ResourceBundle property;
     public static ScreenShot print_screen;
 
+    public static String customerType;
+
     public static DateTimeFormatter date_time;
     public static LocalDateTime name;
 
@@ -52,9 +54,14 @@ public class BaseClass extends DB_Connections{
         DOMConfigurator.configure("src\\log4j.xml");
 
 //        for Data Base connection
-        DB_Connections db_conn = new DB_Connections();
-        db_conn.e_comm_connection(E_comm_server, E_comm_port, E_comm_data_base_name, E_comm_userName, E_comm_password);
-        log.info("Data Base connection completed");
+        try {
+            DB_Connections db_conn = new DB_Connections();
+            db_conn.e_comm_connection(E_comm_server, E_comm_port, E_comm_data_base_name, E_comm_userName, E_comm_password);
+            log.info("Data Base connection completed");
+        } catch (Throwable t){
+            log.error("Issue on Data Base Connection: " + t);
+        }
+
 
 
 //        get Resources File

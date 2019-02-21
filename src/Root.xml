@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="KMIT" parallel="instances" thread-count="2">
+<suite name="KMIT">
     <!--Enter the Site name in below value-->
     <parameter name="site" value="erie"/>
 
@@ -11,7 +11,7 @@
     <parameter name="module" value="tickets"/>
 
     <!--Enter to use as a new user or existing in the below value (value="new" / "exist")-->
-    <parameter name="user" value="new"/>
+    <parameter name="user" value="exist"/>
 
     <!--Enter user name and password if above user value=exist-->
     <parameter name="userName" value="sanjaim@kmitsolutions.com"/>
@@ -50,7 +50,7 @@
 
         <groups>
             <run>
-                <include name="test.sign_up"/>
+                <include name="test.tickets"/>
             </run>
         </groups>
 

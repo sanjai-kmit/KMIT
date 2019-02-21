@@ -12,9 +12,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Tickets_Functionality extends BaseClass {
 
+    CommonMethods commonMethods = new CommonMethods(driver);
 
     public void tickets() throws Exception {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -22,6 +23,16 @@ public class Tickets_Functionality extends BaseClass {
         type_1.add("yale");
 
         Thread.sleep(5000);
+
+        log.info("Navigated: to Admission Page");
+        List<String> calendar = new ArrayList<String>();
+        calendar.add("erie");
+//        WebElement calendar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(element.getString("calendar"))));
+
+        if (calendar.contains(site_name)) {
+            commonMethods.select_calendar();
+        }
+
 
         List<WebElement> counter_plus = driver.findElements(By.cssSelector(".counter-plus"));
 
@@ -38,8 +49,9 @@ public class Tickets_Functionality extends BaseClass {
                 counter_plus.get(j).click();
             }
         }
-
         WebElement add_to_cart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(element.getString("add_to_cart"))));
         add_to_cart.click();
+
+        log.info("Added to Card: General Admission");
     }
 }
